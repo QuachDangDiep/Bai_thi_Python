@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Báo Cáo Mượn Sách</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Báo Cáo Mượn Sách</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên Thành Viên</th>
+                <th>Ngày Sinh</th>
+                <th>Địa Chỉ</th>
+                <th>Tên Sách</th>
+                <th>Ngày Mượn</th>
+                <th>Trạng Thái</th>
+                <th>Trả Sách</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ transaction.name }}</td>
+                <td>{{ transaction.dob }}</td>
+                <td>{{ transaction.address }}</td>
+                <td>{{ transaction.book_title }}</td>
+                <td>{{ transaction.borrow_date }}</td>
+                <td>{{ transaction.status }}</td>
+                <td>
+                    {% if transaction.status == 'Đang mượn' %}
+                    <form action="{{ url_for('return_book', transaction_id=transaction.transaction_id) }}" method="post">
+                        <button type="submit">Trả Sách</button>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ url_for('index') }}">Trở Lại Trang Chủ</a>
+</body>
+</html>

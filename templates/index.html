@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Chủ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Chào Mừng Đến Với Hệ Thống Quản Lý Sách</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('add_data') }}">Thêm Sách và Thành Viên</a></li>
+            <li><a href="{{ url_for('report') }}">Xem Báo Cáo Mượn Sách</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

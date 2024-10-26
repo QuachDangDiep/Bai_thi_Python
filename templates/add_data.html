@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm Dữ Liệu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Thêm Sách và Thành Viên</h2>
+    <form method="post">
+        <h3>Thông Tin Sách</h3>
+        <label>Tiêu Đề:</label>
+        <input type="text" name="book_title" required><br>
+        <label>Tác Giả:</label>
+        <input type="text" name="book_author" required><br>
+        
+        <h3>Thông Tin Thành Viên</h3>
+        <label>Tên:</label>
+        <input type="text" name="member_name" required><br>
+        <label>Ngày Sinh:</label>
+        <input type="date" name="member_dob" required><br>
+        <label>Địa Chỉ:</label>
+        <input type="text" name="member_address" required><br>
+        
+        <button type="submit">Thêm Dữ Liệu</button>
+    </form>
+    <br>
+    <a href="{{ url_for('index') }}">Trở Lại Trang Chủ</a>
+</body>
+</html>
